@@ -19,22 +19,22 @@ def rows_proper(sudoku):
 def rows_proper2(sudoku):
   nrows = len(sudoku)
   ncols = len(sudoku[0])
-  for row_id in xrange(nrows):
-    for col_id in xrange(ncols):
+  for row_id in range(nrows):
+    for col_id in range(ncols):
       element = sudoku[row_id][col_id]
       if not element:
         continue
       for j in range(col_id + 1, ncols):
         next_el = sudoku[row_id][j]
-        if element = next_el:
+        if element == next_el:
           return False
   return True
 
 def columns_proper(sudoku):
   nrows = len(sudoku)                   # number of rows (elements of sudoku)
   ncols = len(sudoku[0])                # numner of columns = number of elements in first row in sudoku
-  for col_id in xrange(ncols):
-    for i in xrange(nrows):
+  for col_id in range(ncols):
+    for i in range(nrows):
       element = sudoku[i][col_id]
       if not element:
         continue
@@ -65,24 +65,3 @@ def square_proper(sudoku):  # asumption - dim 9x9
               if element == next_el:          
                 return False  
   return True
-  
-
-# TO DO - condition for dimension of sudoku - it has to be n x n, where n = m^2
-
-sudoku = [
-  [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  [1, 2, 3, 4, 5, 6, 7, 8, 9],
-]
-
-for row in sudoku:
-  print(*row)
-  
-print()
-input("Press ENTER")
